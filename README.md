@@ -13,7 +13,7 @@ Note: use h0nde's group checker if you'd like a fast group checker. https://www.
 
 # How can I use this?
 - Download the project file
-- Go to https://proxyscrape.com/free-proxy-list and get some HTTPs proxies, make sure SLL is turned on <img src="https://media.discordapp.net/attachments/853622467021242408/910258525983346698/chrome_Q77ZNi3FGa.png"/>
+- Go to https://proxyscrape.com/free-proxy-list and get some HTTPs proxies, make sure SSL is turned on <img src="https://media.discordapp.net/attachments/853622467021242408/910258525983346698/chrome_Q77ZNi3FGa.png"/>
 - Put these proxies in a file called "proxies.txt" in the same directory as the Python file
 - Run the Python file and enjoy
 
