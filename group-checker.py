@@ -7,10 +7,7 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 def checkGroup():
   proxyList = open("proxies.txt", "r").readlines()
 
-  global count
   count = 0
-
-  global currentProxy
   currentProxy = random.choice(proxyList).replace("\n","")
 
   while True:
