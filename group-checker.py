@@ -6,7 +6,6 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 def checkGroup():
   proxyList = open("proxies.txt", "r").readlines()
-
   count = 0
   currentProxy = random.choice(proxyList).replace("\n","")
 
@@ -21,32 +20,28 @@ def checkGroup():
         oldproxy = currentProxy
         currentProxy = random.choice(proxyList).replace("\n","")
         print(f"[Info] Getting ratelimited, switching proxy [{oldproxy} -> {currentProxy}]")
-      else:
-          if not re.json()["owner"] and re.json()['publicEntryAllowed']:
-            try:
-              re.json()["isLocked"] # Will try to parse isLocked, if not found will error and so it will know it's not locked
-              print(f"({count}) [{currentProxy}] [invalid] https://web.roblox.com/groups/{id} | Locked | [Writing to file]")
-              f = open("unclaimable_groups.txt", "a")
-              f.write(f"https://web.roblox.com/groups/{id}\n")
-              f.close()
-            except:
-              print(f"({count}) [{currentProxy}] [hit] https://web.roblox.com/groups/{id} [Writing to file]")
-              f = open("claimable_groups.txt", "a")
-              f.write(f"https://web.roblox.com/groups/{id}\n")
-              f.close()
-          else:
-              print(f"({count}) [{currentProxy}] [invalid] https://web.roblox.com/groups/{id}  [Writing to file]")
-              f = open("unclaimable_groups.txt", "a")
-              f.write(f"https://web.roblox.com/groups/{id}\n")
-              f.close()
+      elif not re.json()["owner"] and re.json()['publicEntryAllowed']:
+        try:
+          re.json()["isLocked"] # Will try to parse isLocked, if not found will error and so it will know it's not locked
+          print(f"({count}) [{currentProxy}] [invalid] https://web.roblox.com/groups/{id} | Locked | [Writing to file]")
+          with open("unclaimable_groups.txt", "a") as f:
+             f.write(f"https://web.roblox.com/groups/{id}\n")
+        except KeyError:
+          print(f"({count}) [{currentProxy}] [hit] https://web.roblox.com/groups/{id} [Writing to file]")
+          with open("claimable_groups.txt", "a") as f:
+             f.write(f"https://web.roblox.com/groups/{id}\n")
+        else:
+           print(f"({count}) [{currentProxy}] [invalid] https://web.roblox.com/groups/{id}  [Writing to file]")
+           with open("unclaimable_groups.txt", "a") as f:
+               f.write(f"https://web.roblox.com/groups/{id}\n")
     
-    except:
+    except requests.exceptions.RequestException:
         oldproxy = currentProxy
         currentProxy = random.choice(proxyList).replace("\n","")
         print(f"[Info] Proxy error, switching proxy [{oldproxy} -> {currentProxy}]")
 
 if __name__ ==  '__main__':
-  print("Roblox Group Checker made by SirWeeb (https://www.novaline.xyz)")
+  print("Roblox Group Checker made by SirWeeb (https://www.novaline.xyz)"
   open("unclaimable_groups.txt", "w").close() # Will make the file if not there & clear them
   open("claimable_groups.txt", "w").close() # Will make the file if not there & clear them
   checkGroup()
