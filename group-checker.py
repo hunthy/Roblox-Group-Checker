@@ -6,7 +6,6 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 def checkGroup():
   proxyList = open("proxies.txt", "r").readlines()
-
   count = 0
   currentProxy = random.choice(proxyList).replace("\n","")
 
@@ -45,5 +44,4 @@ if __name__ ==  '__main__':
   print("Roblox Group Checker made by SirWeeb (https://www.novaline.xyz)"
   open("unclaimable_groups.txt", "w").close() # Will make the file if not there & clear them
   open("claimable_groups.txt", "w").close() # Will make the file if not there & clear them
-
   checkGroup()
