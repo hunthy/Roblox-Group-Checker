@@ -43,7 +43,7 @@ def checkGroup():
     except:
         oldproxy = currentProxy
         currentProxy = random.choice(proxyList).replace("\n","")
-        print(f"[Info] Getting ratelimited, switching proxy [{oldproxy} -> {currentProxy}]")
+        print(f"[Info] Proxy error, switching proxy [{oldproxy} -> {currentProxy}]")
 
 if __name__ ==  '__main__':
   print("Roblox Group Checker made by SirWeeb (https://www.novaline.xyz)")
