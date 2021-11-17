@@ -5,9 +5,9 @@ import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 def checkGroup():
-  proxyList = open("proxies.txt", "r").readlines()
+  proxyList = open("proxies.txt", "r").read().split("\n")
   count = 0
-  currentProxy = random.choice(proxyList).replace("\n","")
+  currentProxy = random.choice(proxyList)
 
   while True:
     id = random.randint(1, 1255555)
@@ -18,7 +18,7 @@ def checkGroup():
 
       if 'TooManyRequests' in re.text:
         oldproxy = currentProxy
-        currentProxy = random.choice(proxyList).replace("\n","")
+        currentProxy = random.choice(proxyList)
         print(f"[Info] Getting ratelimited, switching proxy [{oldproxy} -> {currentProxy}]")
       elif not re.json()["owner"] and re.json()['publicEntryAllowed']:
         try:
@@ -35,9 +35,9 @@ def checkGroup():
            with open("unclaimable_groups.txt", "a") as f:
                f.write(f"https://web.roblox.com/groups/{id}\n")
     
-    except requests.exceptions.RequestException:
+    except:
         oldproxy = currentProxy
-        currentProxy = random.choice(proxyList).replace("\n","")
+        currentProxy = random.choice(proxyList)
         print(f"[Info] Proxy error, switching proxy [{oldproxy} -> {currentProxy}]")
 
 if __name__ ==  '__main__':
