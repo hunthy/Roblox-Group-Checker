@@ -41,7 +41,7 @@ def checkGroup():
         print(f"[Info] Proxy error, switching proxy [{oldproxy} -> {currentProxy}]")
 
 if __name__ ==  '__main__':
-  print("Roblox Group Checker made by SirWeeb (https://www.novaline.xyz)")
+  print("Roblox Group Checker made by SirWeeb (https://www.novaline.club)")
   open("unclaimable_groups.txt", "w").close() # Will make the file if not there & clear them
   open("claimable_groups.txt", "w").close() # Will make the file if not there & clear them
   checkGroup()
