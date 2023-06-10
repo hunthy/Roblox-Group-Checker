@@ -1,5 +1,5 @@
 # Roblox-Group-Checker
-Made by SirWeeb (https://www.novaline.xyz).
+Made by SirWeeb (https://www.novaline.club).
 
 This little Python program can find claimable Roblox groups.
 
