@@ -5,7 +5,7 @@ import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 def checkGroup():
-  proxyList = open("proxies.txt", "r").read().split("\n")
+  proxyList = open("C:\Users\hunte\Desktop\Roblox-Group-Checker\proxies.txt.txt", "r").read().split("\n")
   count = 0
   currentProxy = random.choice(proxyList)
 
